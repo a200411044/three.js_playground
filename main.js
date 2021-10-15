@@ -93,8 +93,6 @@ const moon = new THREE.Mesh(
 
 scene.add(moon);
 
-const email = new THREE.Mesh();
-
 moon.position.z = 30;
 moon.position.setX(-10);
 
