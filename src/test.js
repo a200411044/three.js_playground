@@ -1,5 +1,4 @@
 import "/style.css";
-import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 const renderer = new THREE.WebGLRenderer();
@@ -16,6 +15,10 @@ controls.autoRotate = true;
 controls.minDistance = 200;
 controls.maxDistance = 600;
 
+
+// init THREEx
+var domEvents	= new THREEx.DomEvents(camera, renderer.domElement)
+
 //Email
 const EmailTexture = new THREE.TextureLoader().load("./email.jpg")
 
@@ -25,6 +28,9 @@ const material = new THREE.MeshBasicMaterial({
 })
 const ball = new THREE.Mesh(geometry, material)
 scene.add(ball)
+
+var url	= 'mailto:lyming9811@gmail.com'
+THREEx.Linkify(domEvents, ball, url)
 
 //Form
 const formTexture = new THREE.TextureLoader().load("./3dgray.jpg")
